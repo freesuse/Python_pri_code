@@ -30,4 +30,43 @@ for i in range(ext):
     print(s)
     num = num // k
 	
-
+#code02：添加校验和输出格式
+num = int(input("please input num: "))
+ext = 0  #数位
+if num > 0 and num < 100000:
+    if num >= 100:
+        if num >= 100 and num < 1000:
+            ext = 3
+            print("The num is 3 bit")
+        elif num >= 1000 and num < 10000:
+            ext = 4
+            print("The num is 4 bit")
+        elif num >= 10000 and num < 100000:
+            ext = 5
+            print("The num is 5 bit")
+    else:
+        if num >= 10:
+            ext = 2
+            print("The num is 2 bit")
+        elif num > 0 and num < 10:
+            ext = 1
+            print("The num is 1 bit")
+    
+    s = 0  #每一位的值
+    print(str(num) + " all kinds of:")
+    for i in range(ext):
+        k = 10
+        s = num % k
+        if i == 0:
+            print("个位: " + str(s))
+        elif i == 1:
+            print("十位: " + str(s))
+        elif i == 2:
+            print("百位: " + str(s))
+        elif i == 3:
+            print("千位: " + str(s))
+        else:
+            print("万位: " + str(s))
+        num = num // k
+else:
+    print("input is error,please enter num!")
