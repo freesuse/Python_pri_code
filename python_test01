@@ -1,4 +1,5 @@
 #练习01：给定一个不超过5位的正整数,判断其有几位,使用input函数
+#code01: 列出每种情况
 #!~/.pyenv/shims/python
 num = int(input("please input 5bit num: "))
 if num >= 0 and num <= 9:
@@ -13,4 +14,21 @@ elif num > 9999 and num <= 99999:
     print("The num is 5 bit")
 else:
     print("input error, please enter input!")
+
+#code02: 将最坏的情况放在最前面,防止无用的数据进行判断
+num = int(input("please input 5bit num: "))
+if num < 0:
+    print("input error, please enter input!")
+else:
+    if num >= 0 and num <= 9:
+        print("The num is 1 bit")
+    elif num > 9 and num <= 99:
+            print("The num is 2 bit")
+    elif num >99 and num <=999:
+            print("The num is 3 bit")
+    elif num > 999 and num <= 9999:
+            print("The num is 4 bit")
+    elif num > 9999 and num <= 99999:
+        print("The num is 5 bit")
+
 
