@@ -70,3 +70,19 @@ if num > 0 and num < 100000:
         num = num // k
 else:
     print("input is error,please enter num!")
+
+
+#code03：通过循环和break语句的使用,精简
+num = int(input("please input num: "))
+ext = 0  #数位
+if num > 0 and num < 100000:
+    while True:
+        print(num%10)
+        ext += 1
+        num = num // 10
+        if num == 0:
+            break
+    print("这个数的位数是: ",ext)
+else:
+    print("input is error,please enter num!")
+
