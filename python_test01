@@ -31,7 +31,7 @@ else:
     elif num > 9999 and num <= 99999:
         print("The num is 5 bit")
 
-#code03: 二分法判断
+#code03: 二分法判断，嵌套用法，解决效率问题
 num = int(input("please input 5bit num: "))
 if num < 0:
     print("input error, please enter input!")
