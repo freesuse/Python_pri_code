@@ -11,3 +11,15 @@ for i in range(num):
 print(num,"的阶乘之和为: ",s)
 
 
+#code02:使用上一个数阶乘的结果作为下一个阶乘,节省一次for循环
+s = 0  #记录乘积之和
+n = 1  #记录每次乘积
+num = int(input("input num: "))
+if num == 1:
+    print(num,"的阶乘之和为: 1")
+else:
+    for i in range(num):
+        i = i + 1
+        n = n * i  #每个数的阶乘使用上一个的阶乘计算
+        s = s + n
+    print(num,"的阶乘之和为: ",s)
