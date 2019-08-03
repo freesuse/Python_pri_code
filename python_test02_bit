@@ -21,8 +21,8 @@ else:
         print("The num is 1 bit")
 
 k = 1
-s = 0
-m = 0
+s = 0  #每位数
+#m = 0
 print(str(num) + " all kinds of:")
 for i in range(ext):
     k = 10
@@ -86,3 +86,45 @@ if num > 0 and num < 100000:
 else:
     print("input is error,please enter num!")
 
+#code04：break循环
+num = int(input("input a 5bit num : "))
+txt = 0
+#计数器
+if num >= 1000:
+    if num < 10000:
+        txt = 4
+        print("num is a 4 bit")
+    elif num < 100000:
+        txt = 5
+        print("num is a 5 bit")
+else:
+    if num >= 100:
+        txt = 3
+        print("num is a 3 bit")
+    elif num >= 10:
+        txt = 2
+        print("num is a 2 bit")
+    else:
+        txt = 1
+        print("num is a 1 bit")
+
+while True:
+    if txt >= 1:
+        print(num % 10)
+        num = num // 10
+        txt = txt - 1
+    else:
+        break
+
+#code05：break循环
+num = int(input("input a 5bit num : "))
+debain = 0
+while True:
+    if num > 0:
+        print(num % 10)
+        num = num // 10
+        debain = debain + 1
+    else:
+        break
+
+print("num is a ",debain,"bit")
