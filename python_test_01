@@ -1,0 +1,23 @@
+#问题描述：打印一个边长为n的正方形
+#code01:多层for循环嵌套实现
+side = int(input("input a side : "))
+for i in range(side):
+    test01 = side  #重新使用边长,防止边长被修改
+    if i == 0 or i == (test01 - 1):
+        while test01:  #第一行和最后一行全打
+            print("*",end='')
+            test01 = test01 - 1
+        print()  #输出结束下一行
+    else:
+        test01 = side  #重新使用边长值,打印中间的内容
+        print("*",end='')  #左边
+        test01 = test01 - 2  #打印中间的空格数
+        while test01:
+            print(" ",end='')
+            test01 = test01 - 1
+        print("*")  #右边
+
+#code02: 使用字符串相加实现
+
+
+
