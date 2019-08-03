@@ -123,7 +123,7 @@ while True:
     if num > 0:
         print(num % 10)
         num = num // 10
-        debain = debain + 1
+        debain = debain + 1  #统计位数
     else:
         break
 
