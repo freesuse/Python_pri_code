@@ -18,6 +18,14 @@ for i in range(side):
         print("*")  #右边
 
 #code02: 使用字符串相加实现
-
+#获取正方形的边长
+side = int(input("input a side : "))
+for i in range(side):
+    if i == 0 or i == (side - 1):
+    #第一行和最后一行特殊处理
+        print("*" * side)
+    else:
+    #其它行原样打印
+        print("*" + " " * (side - 2) + "*")
 
 
