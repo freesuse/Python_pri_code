@@ -1,0 +1,17 @@
+#问题描述：给一个数，判断它是否是素数(质数)
+#质数：一个大于1的自然数只能被1和它本身整除
+
+#修改：n以内的质数
+#code01: 从2到n可以被整除的次数为1，就是质数
+num = int(input("input num is : "))
+for i in range(2,num+1):
+    flag = 0  #求可以被取余的次数
+    for j in range(2,i+1):
+        if i % j == 0:
+            flag = flag + 1
+    if flag == 1:
+        print(i,"is a Prime numbe")
+    else:
+        continue
+
+#code01:
