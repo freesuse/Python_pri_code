@@ -7,3 +7,21 @@
   ***
    *
 
+#思路一：上半部分和下半部分各自打印
+for i in range(1,8):
+    if i <= 4:  #上部
+        for j in range(1,5-i):
+            print(" ",end="")
+        for k in range(2*i-1):
+            print("*",end="")
+        print()
+    else:  #下部
+        for j in range(i-4):
+            print(" ",end="")
+        for k in range((7-i)*2+1):
+            print("*",end="")
+        print()
+
+
+#思路二：找规律
+
