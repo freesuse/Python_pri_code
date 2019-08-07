@@ -1,0 +1,13 @@
+代码01：此代码立刻将单核CPU跑满
+for i in range(2,100000):
+    if i == 2:
+        print(2,end=" ")
+    else:
+        for j in range(2,i-1):
+            if i % j == 0:  #在2到n-1之间找因子
+                break
+        else: #正常结束为质数
+             print(i,end=" ")
+             
+
+
