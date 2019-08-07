@@ -9,5 +9,28 @@ for i in range(2,100000):
         else: #正常结束为质数
              print(i,end=" ")
              
+思路：
+(1) 先打印一个小范围的素数(例如：100以内)
+(2) 参考质数的性质
+  1) 除了2之外其余都是奇数
+  2) 取余的范围可以从3开始到这个数的开平方根,步长为2进行跳跃
 
-
+import datetime
+start = datetime.datetime.now()
+n = 10000
+if n > 2:
+    print(2)
+if n > 3:
+    print(3)
+if n > 5:
+    print(5)
+if n > 7:
+    print(7)
+for i in range(11,n+1,2):
+    for j in range(3,int(i**0.5),2):
+        if i % j == 0:
+            break
+    else:
+        print(i)
+end = datetime.datetime.now()
+print(end-start)
