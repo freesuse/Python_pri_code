@@ -20,10 +20,10 @@
 #代码01：
 for i in range(-3,4):
     if i < 0:
-        blankspace = -i
+        blankspace = -i   #上半部分
         print(" "*blankspace+"*"*(4 - blankspace))
     elif i == 0:
         print("*******")
     else:
-        blankspace = i
+        blankspace = i  #下半部分
         print(" "*3+"*"*(4-blankspace))
