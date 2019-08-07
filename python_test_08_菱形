@@ -47,3 +47,10 @@ for i in range(-3,4):
     print(" "*blankspace + "*"*(7-2*blankspace))
 
 #注：此处注意print打印的数值如果使用","间隔，则默认会存在一个空格
+
+#修改为三目运算符
+#注：三目运算符必须是确定的输出结果,不能是blankspace=-i的语句
+for i in range(-3,4):
+    print(" "*(-i) + "*"*(7-2*(-i))) if i<0 else print(" "*i + "*"*(7-2*i)) 
+
+
