@@ -33,3 +33,17 @@ for i in range(1,8):
  6      3       2         4         7
  7      1       3         6         7
 
+思考：
+(1) 从"*个数"到"空格个数"呈现中心对称的趋势
+(2) 空格个数=2 * 前空格数
+
+#code如下
+for i in range(-3,4):
+    if i < 0:
+        blankspace = -i
+    else:
+        blankspace = i
+	  #print(" "*blankspace,"*"*(7-2*blankspace))
+    print(" "*blankspace + "*"*(7-2*blankspace))
+
+#注：此处注意print打印的数值如果使用","间隔，则默认会存在一个空格
