@@ -4,5 +4,63 @@
 (3) 2组中，不重复的数字有几个？分别是什么？
 (4) 2组中，重复的数字有几个？分别是什么？
 
+测试01：根据题意分析代码如下
+import random
+num1 = []
+num2 = []
+#产生2组随机数
+for i in range(20):
+    if i < 10:
+        num1.append(random.randrange(10,21))
+    else:
+        num2.append(random.randrange(10,21))
+print("num1 {0} \nnum2 {1}".format(num1,num2))
+
+set1 = set(num1)
+set2 = set(num2)
+print("set1 {} \nset2 {}".format(set1,set2))
+
+set_all = set()
+set_all.update(set1,set2)
+print("20个数字中一共有{}个不重复的数字,分别为{}".format(len(set_all),set_all))
+
+#num1和num2不重复的元素
+print("num1 不重复的数字有 {} 分别是 {}".format(len(set1-set2),set1-set2))
+
+#num2和num1不重复的元素
+print("num2 不重复的数字有 {} 分别是 {}".format(len(set2-set1),set2-set1))
+
+#2个集合各自不重复的元素
+app_list1 = [0]*21
+app_no_list1 = []
+for m in num1:
+    app_list1[m] += 1
+
+for k in range(len(app_list1)):
+    if app_list1[k] > 1:
+        app_no_list1.append(k)
+
+app_list2 = [0]*21
+app_no_list2 = []
+for n in num2:
+    app_list2[n] += 1
+
+for t in range(len(app_list2)):
+    if app_list2[t] > 1:
+        app_no_list2.append(t)
+
+print("num1 重复的元素有 {}".format(app_no_list1))
+print("num2 重复的元素有 {}".format(app_no_list2))
+
+结果为：
+num1 [18, 20, 11, 15, 20, 14, 19, 16, 11, 15] 
+num2 [18, 16, 19, 15, 16, 18, 19, 12, 14, 15]
+set1 {11, 14, 15, 16, 18, 19, 20} 
+set2 {12, 14, 15, 16, 18, 19}
+20个数字中一共有8个不重复的数字,分别为{11, 12, 14, 15, 16, 18, 19, 20}
+num1 不重复的数字有 2 分别是 {11, 20}
+num2 不重复的数字有 1 分别是 {12}
+num1 重复的元素有 [11, 15, 20]
+num2 重复的元素有 [15, 16, 18, 19]
 
 
