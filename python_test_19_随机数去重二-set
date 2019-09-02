@@ -63,4 +63,54 @@ num2 不重复的数字有 1 分别是 {12}
 num1 重复的元素有 [11, 15, 20]
 num2 重复的元素有 [15, 16, 18, 19]
 
+测试02：部分优化如下
+import random
+num1 = []
+num2 = []
+#产生2组随机数
+for i in range(20):
+    if i < 10:
+        num1.append(random.randrange(10,21))
+    else:
+        num2.append(random.randrange(10,21))
+print("num1 {0} \nnum2 {1}".format(num1,num2))
+
+set1 = set(num1)
+set2 = set(num2)
+print("set1 {} \nset2 {}".format(set1,set2))
+
+set_all = set()
+set_all.update(set1,set2)
+print("20个数字中一共有{}个不重复的数字,分别为{}".format(len(set_all),set_all))
+
+#num1和num2不重复的元素
+print("num1 和 num2 不重复的数字有 {} 分别是 {}".format(len(set1-set2),set1-set2))
+
+#num2和num1不重复的元素
+print("num2 和 num1 不重复的数字有 {} 分别是 {}".format(len(set2-set1),set2-set1))
+
+#2个集合各自不重复的元素
+repeat1 = []
+for i in num1:
+    if (num1.count(i) > 1) and (i not in repeat1):  #统计重复的元素,且重复的元素添加在一个新的元组,并且不重复
+        repeat1.append(i)
+
+repeat2 = []
+for i in num2:
+    if (num2.count(i) > 1) and (i not in repeat2):
+        repeat2.append(i)
+
+print("num1 内部重复的元素有 {}".format(repeat1))
+print("num2 内部重复的元素有 {}".format(repeat2))
+
+结果：
+num1 [18, 18, 12, 11, 10, 17, 19, 11, 17, 13] 
+num2 [17, 13, 16, 10, 18, 19, 17, 14, 11, 16]
+set1 {10, 11, 12, 13, 17, 18, 19} 
+set2 {10, 11, 13, 14, 16, 17, 18, 19}
+20个数字中一共有9个不重复的数字,分别为{10, 11, 12, 13, 14, 16, 17, 18, 19}
+num1 和 num2 不重复的数字有 1 分别是 {12}
+num2 和 num1 不重复的数字有 2 分别是 {16, 14}
+num1 内部重复的元素有 [18, 11, 17]
+num2 内部重复的元素有 [17, 16]
 
