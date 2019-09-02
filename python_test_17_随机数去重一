@@ -1,0 +1,150 @@
+#问题：要求:
+  1) 每个数字取值范围[1,20]
+  2) 统计重复的数字有几个？分别是什么？
+  3) 统计不重复的数字有几个？分别是什么？
+举例：11, 7 ,5 ,11 ,6, 7, 4,其中2个数字7和11重复了,3个数字4、5、6没有重复过
+
+测试01：按照题意直接打印
+import random
+num = []
+for i in range(10):
+    num.append(random.randrange(1,21))
+print(num)
+
+for j in range(10):
+    if num.count(num[j]) > 1:
+        print("{}\t重复了 {} 次".format(num[j],num.count(num[j])))
+    else:
+        print("{}\t不重复".format(num[j]))
+
+结果为：
+[14, 3, 19, 17, 5, 4, 14, 5, 14, 6]
+14	重复了 3 次
+3	不重复
+19	不重复
+17	不重复
+5	重复了 2 次
+4	不重复
+14	重复了 3 次
+5	重复了 2 次
+14	重复了 3 次
+6	不重复
+
+测试02：将问题转换为大于1或者小于1的问题
+import random
+num = []
+for i in range(10):
+    num.append(random.randrange(1,21))
+print(num)
+
+#定义一个20个元素的位置列表(使用1到20个元素),当num中有元素重复时,此列表的位置添加1
+tongji = [0] * 21
+for j in num:
+    tongji[j] += 1
+
+print("统计结果：",tongji)
+
+for m in range(len(tongji)):
+    if tongji[m] > 1:
+        print("{}\t重复了 {} 次".format(m,tongji[m]))
+
+for m in range(len(tongji)):
+    if tongji[m] == 1:
+        print("{}\t不重复".format(m))
+结果为：
+[8, 10, 20, 4, 16, 3, 17, 19, 12, 7]
+统计结果： [0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1]
+3	不重复
+4	不重复
+7	不重复
+8	不重复
+10	不重复
+12	不重复
+16	不重复
+17	不重复
+19	不重复
+20	不重复
+
+注：此种方式可以减少一个for优化如下
+import random
+num = []
+for i in range(10):
+    num.append(random.randrange(1,21))
+print(num)
+
+#定义一个20个元素的位置列表(使用1到20个元素),当num中有元素重复时,此列表的位置添加1
+tongji = [0] * 21
+for j in num:
+    tongji[j] += 1
+
+print("统计结果：",tongji)
+
+for m in range(len(tongji)):
+    if tongji[m] == 0:
+        continue
+    elif tongji[m] > 1:
+        print("{}\t重复了 {} 次".format(m,tongji[m]))
+    else:
+        print("{}\t不重复".format(m))
+
+结果为：
+[5, 1, 3, 10, 11, 14, 15, 6, 19, 19]
+统计结果： [0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 2, 0]
+1	不重复
+3	不重复
+5	不重复
+6	不重复
+10	不重复
+11	不重复
+14	不重复
+15	不重复
+19	重复了 2 次
+
+测试03：
+import random
+num = []
+for _ in range(10):
+    num.append(random.randrange(1,21))
+print(num)
+
+repeat = []
+single = []
+for i in num:
+    if num.count(i) > 1:  #统计重复的元素,且重复的元素添加在一个新的元组,并且不重复
+        if i not in repeat:
+            repeat.append(i)
+    else:
+        single.append(i)
+
+print("repeat：{}, {}".format(len(repeat), repeat))
+print("single：{}, {}".format(len(single), single))
+
+结果为：
+[13, 5, 8, 17, 18, 5, 6, 5, 18, 12]
+repeat：2, [5, 18]
+single：5, [13, 8, 17, 6, 12]
+
+
+代码简写如下：
+import random
+num = []
+for _ in range(10):
+    num.append(random.randrange(1,21))
+print(num)
+
+repeat = []
+single = []
+for i in num:
+    if (num.count(i) > 1) and (i not in repeat):  #统计重复的元素,且重复的元素添加在一个新的元组,并且不重复
+        repeat.append(i)
+    else:
+        single.append(i)
+
+print("repeat：{}, {}".format(len(repeat), repeat))
+print("single：{}, {}".format(len(single), single))
+
+结果为：
+[12, 2, 14, 11, 1, 2, 8, 4, 1, 5]
+repeat：2, [2, 1]
+single：8, [12, 14, 11, 2, 8, 4, 1, 5]
+
