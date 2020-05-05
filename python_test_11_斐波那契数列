@@ -33,4 +33,16 @@ for i in range(101):
 else:  #正常结束之后,输出最后一个既101项的值
     print(s)
 
-注：此处注意range的范围
+#注：此处注意range的范围
+
+
+#扩展02：使用缓存
+#解释：此处从算法本身来讲是用空间换时间
+import functools
+@functools.lru_cache() #maxsize=None
+def fib(n):
+    if n < 3:
+        return n
+    return fib(n-1) + fib(n-2)
+print([fib(x) for x in range(35)])
+
