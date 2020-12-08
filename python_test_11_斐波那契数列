@@ -46,3 +46,70 @@ def fib(n):
     return fib(n-1) + fib(n-2)
 print([fib(x) for x in range(35)])
 
+#扩展03：使用前2项作为后一项的数据
+测试01：斐波那契数列的改进
+pre = 0
+cur = 1  #No1
+print(pre,cur,end=' ')
+def fib(n,pre=0,cur=1):  #recursion
+    pre,cur = cur,pre + cur
+    print(cur,end=' ')
+    if n == 2:
+        return
+    fib(n-1,pre,cur)  #此句后面隐含调用 return，直接将前一个的结果当作后一个的输入
+
+fib(5)
+
+改进简述：
+1)上述的fib函数和循环的思想类似
+2)参数n是边界条件,用n来计数
+3)上一次的计算结果直接作为函数的实参
+4)效率很高
+5)和循环比较,性能相近; 所以并不是说递归定效率低下，但是递归有深度限制
+#新的改进版本
+def fun(n,pre=0,pri=1,i=1):
+    print("pr{}={}".format(i,pre))
+    pri,pre = pri,pri + pre
+    if n == 1:
+        return
+    n = n - 1
+    i += 1
+    fun(n,pri,pre,i)
+
+fun(700)
+
+
+#扩展04：生成器
+#生成器01：嵌套函数
+def fib():
+    x = 0
+    y = 1
+    while True:
+        yield y
+        x,y = y,x+y
+
+foo = fib()
+for _ in range(5):  #取斐波那契数列前5项
+    print(next(foo))
+
+for _ in range(100):   #取斐波那契数列5--100项
+    next(foo)
+print(next(foo))  #取101项
+
+
+#生成器02：此处代码也可以写为以下
+def fun():
+    x = 0
+    y = 1
+    while True:
+        yield x
+        x,y = y,x+1
+
+def fc(c):
+    return next(c)
+
+c = fun()
+
+for i in range(4):  #返回数列的前4项
+    print(fc(c))
+
